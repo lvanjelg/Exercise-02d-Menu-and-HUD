@@ -9,7 +9,7 @@ var lives = 0
 func _ready():
 	randomize()
 	pause_mode = Node.PAUSE_MODE_PROCESS
-	VP = get_viewport().size
+	VP = Vector2(3840,2158)
 	var _signal = get_tree().get_root().connect("size_changed",self,"_resize")
 	reset()
 
@@ -34,7 +34,6 @@ func _unhandled_input(event):
 				get_tree().paused = true
 
 func _resize():
-	VP = get_viewport().size
 	var HUD = get_node_or_null("/root/Game/UI/HUD")
 	if HUD != null:
 		HUD.update_lives()
